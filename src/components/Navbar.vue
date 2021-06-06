@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full mb-4 p-4 pl-10 fixed flex flex-row items-center bg-dark-bkg shadow-md">
+    <div class="w-full mb-4 p-4 pl-10 flex flex-row items-center bg-dark-bkg border-b-2 border-black">
         <a class="flex-none" href="/">
             <logo class="h-10"></logo>
         </a>
