@@ -30,6 +30,14 @@
 		font-family: 'Rubik', sans-serif;
 		padding: 0;
 		margin: 0;
+		color: var(--text-light);
+	}
+
+	:global(div),
+	:global(p),
+	:global(a),
+	:global(button) {
+		color: var(--text);
 	}
 
 	:global(html),
@@ -49,8 +57,8 @@
 	/* Dark theme */
 	:global(body.dark) {
 		--bg: #1b1f26;
-		--text-light: DDDDDD;
-		--text: #f2f0eb;
+		--text-light: #f2f0eb;
+		--text: #dddddd;
 		--primary: #da95fb;
 	}
 
@@ -59,11 +67,11 @@
 		margin: 0 auto;
 	}
 
-    /* Container on ipad */
-    @media (max-width: 1200px) {
-        .container {
-            width: calc(100% - 2rem);
-            padding: 0 1rem;
-        }
-    }
+	/* Container on ipad */
+	@media (max-width: 1200px) {
+		.container {
+			width: calc(100% - 2rem);
+			padding: 0 1rem;
+		}
+	}
 </style>

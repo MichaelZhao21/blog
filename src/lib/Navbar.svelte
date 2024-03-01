@@ -1,9 +1,20 @@
+<script>
+	let darkText = 'light mode';
+	function changeTheme() {
+		document.body.classList.toggle('dark');
+		darkText = document.body.classList.contains('dark') ? 'light mode' : 'dark mode';
+	}
+</script>
+
 <div class="navbar">
 	<h1 class="name">🐢 michael zhao</h1>
 	<div class="right">
 		<a href="/" class="navlink">home</a>
 		<a href="https://michaelzhao.xyz" class="navlink">about me</a>
 		<a href="/admin" class="navlink">admin</a>
+		<button class="navlink" on:click={changeTheme}>
+			{darkText}
+		</button>
 	</div>
 </div>
 
@@ -32,6 +43,9 @@
 		margin: 0 1rem;
 		font-size: 1.25rem;
 		color: var(--primary);
+		border: none;
+		background: transparent;
+		cursor: pointer;
 
 		text-decoration: underline;
 		text-decoration-color: transparent;
