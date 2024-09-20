@@ -1,0 +1,32 @@
+<script lang="ts">
+	export let data;
+</script>
+
+<svelte:head>
+	<title>{data.metadata.title} | Michael's Blog</title>
+</svelte:head>
+
+<article>
+	<h1>{data.metadata.title}</h1>
+	<p>Published on {data.metadata.date}</p>
+	<div class="tags">
+		{#each data.metadata.tags.split(',') as tag}
+			<span class="tag">{tag.trim()}</span>
+		{/each}
+	</div>
+	<div class="content">
+		{@html data.content}
+	</div>
+</article>
+
+<style>
+	.tags {
+		margin-bottom: 1rem;
+	}
+	.tag {
+		background-color: #eee;
+		padding: 0.2rem 0.5rem;
+		margin-right: 0.5rem;
+		border-radius: 0.25rem;
+	}
+</style>
