@@ -8,7 +8,7 @@
 
 <article>
 	<h1>{data.metadata.title}</h1>
-	<p>Published on {data.metadata.date}</p>
+	<p>{data.metadata.date}&nbsp; · &nbsp;{data.readingTime} min read </p>
 	<div class="tags">
 		{#each data.metadata.tags.split(',') as tag}
 			<span class="tag">{tag.trim()}</span>

@@ -29,6 +29,10 @@ This is quite a long description for this item but it fits and looks good! I can
 2. count!
 3. three
 
+### Again again
+
+Constitutional monarchy may refer to a system in which the monarch acts as a non-party political ceremonial head of state under the constitution, whether codified or uncodified. While most monarchs may hold formal authority and the government may legally operate in the monarch's name, in the form typical in Europe the monarch no longer personally sets public policy or chooses political leaders. Political scientist Vernon Bogdanor, paraphrasing Thomas Macaulay, has defined a constitutional monarch as "A sovereign who reigns but does not rule". In addition to acting as a visible symbol of national unity, a constitutional monarch may hold formal powers such as dissolving parliament or giving royal assent to legislation. However, such powers generally may only be exercised strictly in accordance with either written constitutional principles or unwritten constitutional conventions, rather than any personal political preferences of the sovereign. In The English Constitution, British political theorist Walter Bagehot identified three main political rights which a constitutional monarch may freely exercise: the right to be consulted, the right to encourage, and the right to warn. Many constitutional monarchies still retain significant authorities or political influence, however, such as through certain reserve powers, and may also play an important political role. 
+
 ## ok ok
 
 Let's talk cash.
