@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--background: #f6ede7;
+	--background-light: #ebe0d8;
+	--text: #2e514d;
+	--text-dark: #000000;
+	--grey: #9a8e86;
+	--grey-light: #beb0a6;
+	--brown: #663c14;
+	--brown-1: #a46e48;
+	--brown-2: #a46e48;
+	--brown-3: #a58a77;
+}
+
+html,
+body,
+div,
+h1,
+h2,
+h3,
+p {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+div,
+p {
+	font-family: 'Lexend', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1,
+h2,
+h3 {
+	font-family: 'Nerko One', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html,
+body {
+    background-color: var(--background);
+}

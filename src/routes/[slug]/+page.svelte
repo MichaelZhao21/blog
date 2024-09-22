@@ -1,10 +1,14 @@
 <script lang="ts">
+	import Navbar from "../Navbar.svelte";
+
 	export let data;
 </script>
 
 <svelte:head>
 	<title>{data.metadata.title} | Michael's Blog</title>
 </svelte:head>
+
+<Navbar />
 
 <article>
 	<h1>{data.metadata.title}</h1>
