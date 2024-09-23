@@ -1,29 +1,28 @@
-import { error } from '@sveltejs/kit';
-import fs from 'fs';
-import path from 'path';
 // TODO: Remove when mdsvex fixes their damn package
 // @ts-ignore
 import { compile } from 'mdsvex';
 import { computeReadingTime } from '../functions';
 
-export async function load() {
-	const postsDirectory = path.join(process.cwd(), 'src', 'posts');
+// Use import.meta.glob to get all markdown files
+const posts = import.meta.glob('/src/posts/*.md', { eager: true, query: '?raw', import: 'default' });
 
-	// Read all posts' metadata
-	const files = fs.readdirSync(postsDirectory);
-	const notTestFiles = files.filter(f => f !== "test.md");
-	const posts = await Promise.all(notTestFiles.map(async (file) => {
-		const filePath = path.join(postsDirectory, file);
-		const fileContent = fs.readFileSync(filePath, 'utf-8');
-		const { _, data } = await compile(fileContent);
+// Regex to extract the slug
+const slugRegex = /src\/posts\/(.*)\.md/g
+
+export async function load() {
+	const notTestFiles = Object.entries(posts).filter((f) => f[0] !== "/src/posts/test.md");
+	const postData = await Promise.all(notTestFiles.map(async (file) => {
+		const { _, data } = await compile(file[1]);
+		const slug = slugRegex.exec(file[0]) as RegExpExecArray;
+
 		return {
-			slug: file.replace(/\.md$/, ''),
+			slug: slug[1],
 			meta: data.fm,
-			readingTime: computeReadingTime(fileContent),
+			readingTime: computeReadingTime(file[1] as string),
 		};
 	}));
 
 	return {
-		posts,
+		posts: postData,
 	};
 }

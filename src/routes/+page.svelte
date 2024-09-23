@@ -10,7 +10,7 @@
 
 {#each data.posts as d}
 	<div class="mb-8">
-		<h1 class="text-3xl text-brown-1">
+		<h1 class="text-3xl text-brown-1 duration-200 hover:text-brown-3">
 			<a href={`/${d.slug}`}>{d.meta.title}</a>
 		</h1>
 		<p class="font-bold text-lg text-grey-light mb-2 line-clamp-2">
