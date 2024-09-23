@@ -33,6 +33,23 @@
 	</div>
 </article>
 
+<button
+	class="fixed md:bottom-4 md:right-4 bottom-2 right-2 fill-brown bg-background-light rounded-md drop-shadow-md cursor-pointer hover:fill-brown-2 duration-200 scale-75 md:scale-100"
+	on:click={() => scrollTo({ top: 0, behavior: 'smooth' })}
+>
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		height="48px"
+		viewBox="0 -960 960 960"
+		width="48px"
+		class=""
+	>
+		<path
+			d="M316-400q-6.75 0-10.87-4.64-4.13-4.63-4.13-10.81 0-1.55 5-10.55l158-157q3-3 7.06-5 4.07-2 8.94-2 4.88 0 8.94 2t7.06 5l158 157q2 2 3.5 4.76 1.5 2.77 1.5 5.92 0 6.32-4.12 10.82-4.13 4.5-10.88 4.5H316Z"
+		/>
+	</svg>
+</button>
+
 <style>
 	.content > :global(h1) {
 		font-size: 2.25rem;
