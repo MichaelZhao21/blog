@@ -1,9 +1,21 @@
 <script lang="ts">
-	import Navbar from "./Navbar.svelte";
+	import Navbar from './Navbar.svelte';
 
+	export let data;
 </script>
 
 <Navbar />
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<h1 class="text-4xl mt-4 mb-2">Recent Posts</h1>
+
+{#each data.posts as d}
+	<div class="mb-8">
+		<h1 class="text-3xl text-brown-1">
+			<a href={`/${d.slug}`}>{d.meta.title}</a>
+		</h1>
+		<p class="font-bold text-lg text-grey-light mb-2 line-clamp-2">
+			{d.meta.date}&nbsp; · &nbsp;{d.readingTime} min read
+		</p>
+		<p>{d.meta.description}</p>
+	</div>
+{/each}

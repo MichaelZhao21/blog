@@ -3,6 +3,7 @@ title: Name of Article
 slug: test
 tags: tag1,tag2,tag3
 date: August 3rd, 2024
+description: This is a very intyelletual article!!
 ---
 
 # This is a test article!!!
