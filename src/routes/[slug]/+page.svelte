@@ -1,23 +1,29 @@
 <script lang="ts">
 	import Navbar from '../Navbar.svelte';
+	import metaList from '../../gen-posts/posts.json';
+	import { page } from '$app/stores';
 
 	export let data;
+	let { slug } = $page.params;
+	let meta = metaList.find((m) => m.slug === slug) as any;
 </script>
 
 <svelte:head>
-	<title>{data.metadata.title} | Michael's Blog</title>
+	<title>{meta.title} | Michael's Blog</title>
 </svelte:head>
 
 <Navbar />
 
-<article>
-	<h1 class="text-3xl md:text-5xl">{data.metadata.title}</h1>
+<article class="pb-4">
+	<h1 class="text-3xl md:text-5xl">{meta.title}</h1>
 	<p class="font-bold text-grey-light mb-4">
-		{data.metadata.date}&nbsp; · &nbsp;{data.readingTime} min read
+		{meta.date}&nbsp; · &nbsp;{meta.readingTime} min read
 	</p>
 	<div>
-		{#each data.metadata.tags.split(',') as tag}
-			<span class="bg-background-light text-brown-1 rounded-md py-1 px-2 font-bold mr-4 text-sm">
+		{#each meta.tags.split(',') as tag}
+			<span
+				class="bg-background-light text-brown-1 rounded-md py-1 px-2 font-bold mr-4 text-sm"
+			>
 				{tag.trim()}
 			</span>
 		{/each}
@@ -61,7 +67,6 @@
 		margin-left: 0.5rem;
 		margin-bottom: 0.75rem;
 	}
-
 
 	.content > :global(ol) {
 		list-style: decimal inside !important;
