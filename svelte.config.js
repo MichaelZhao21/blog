@@ -10,6 +10,9 @@ const config = {
 		vitePreprocess(),
 		mdsvex({
 			extensions: ['.md'],
+			highlight: {
+				highlighter: () => '', // Disable syntax highlighting bc prism breaks deployment
+			},
 		}),
 	],
 
