@@ -22,6 +22,22 @@ Wow another section, that's crazyyyy!
 
 This is quite a long description for this item but it fits and looks good! I can go on and blah blah blah talk about this item for like an infinitely long amount of time, but it’s fineeeee. This is quite a long description for this item but it fits and looks good! I can go on and blah blah blah talk about this item for like an infinitely long amount of time, but it’s fineeeee. Although.
 
+```python
+# Here is some python code
+
+# Seed the random number generator
+random.seed()
+
+# Create empty list and set top left to burning
+forest = np.zeros((20, 50))
+forest[0, 0] = 1
+
+# Count of number of cycles
+count = 0
+
+results = []
+```
+
 # Back up
 
 - list

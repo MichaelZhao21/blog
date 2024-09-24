@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { compile } from 'mdsvex';
+import showdown from 'showdown';
 
 // Script to parse the markdown in `posts` directory, convert them to svelte components, and put them in gen-posts folder in `src`
 // We will also generate a posts.json file that contains the metadata of the posts
@@ -13,35 +13,27 @@ async function main() {
 
 	// Create the posts.json file
 	const postMetadata = [];
-	const names = [];
 
 	// For each post, read the markdown file, convert it to a svelte component, and write it to gen-posts
 	await Promise.all(
 		posts.map(async (post) => {
 			const postName = post.replace('.md', '');
 			const postContent = fs.readFileSync(`posts/${post}`, 'utf-8');
-			const { code, data } = await compile(postContent);
-            const modCode = code.replace(/<script.*\/script>/s, '');
-			fs.writeFileSync(`src/gen-posts/${postName}.html`, modCode);
 
-			// Extract the metadata from the markdown
-			postMetadata.push({ ...data.fm, readingTime: computeReadingTime(postContent) });
-			names.push(postName);
+			const converter = new showdown.Converter({ metadata: true });
+			const code = converter.makeHtml(postContent);
+			const data = converter.getMetadata();
+
+			// Write html
+			fs.writeFileSync(`src/gen-posts/${postName}.html`, code);
+
+			// Add to metadata
+			postMetadata.push({ ...data, readingTime: computeReadingTime(postContent) });
 		}),
 	);
-    return;
 
 	// Write the metadata to posts.json
 	fs.writeFileSync('src/gen-posts/posts.json', JSON.stringify(postMetadata));
-
-	// Write the Posts.svelte file
-	let postsSvelte = `<script lang="ts">\n`;
-	names.forEach((name) => {
-		postsSvelte += `import ${name} from './${name}.svelte';\n`;
-	});
-	postsSvelte += `export const posts = [${names.join(',')}];\n`;
-	postsSvelte += `</script>\n\n`;
-	fs.writeFileSync('src/gen-posts/Posts.svelte', postsSvelte);
 }
 
 main();
