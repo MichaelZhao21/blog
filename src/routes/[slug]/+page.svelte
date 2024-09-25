@@ -93,7 +93,7 @@
 	.content > :global(p) {
 		font-size: 1rem;
 		color: var(--text);
-		margin-bottom: 0.75rem;
+		margin-bottom: 1rem;
 	}
 
 	.content > :global(ul) {
