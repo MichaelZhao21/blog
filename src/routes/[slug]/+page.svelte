@@ -129,6 +129,14 @@
 		margin-bottom: 1rem;
 	}
 
+	:global(a) {
+		color: var(--brown-1);
+	}
+
+	:global(a:hover) {
+		text-decoration: underline;
+	}
+
 	@media (min-width: 768px) {
 		.content > :global(h1) {
 			font-size: 2.5rem;
