@@ -2,10 +2,27 @@
 	import Navbar from '../Navbar.svelte';
 	import metaList from '../../gen-posts/posts.json';
 	import { page } from '$app/stores';
+	import { onMount } from 'svelte';
+
+	// Import highlight JS and theme
+	import hljs from 'highlight.js/lib/core';
+	import 'highlight.js/styles/base16/gruvbox-dark-soft.min.css';
+
+	// Custom languages
+	// NOTE: No svelte support (library for language def is outdated and inconsistent with register API)
+	import pythonLang from 'highlight.js/lib/languages/python';
+	import htmlLang from 'highlight.js/lib/languages/xml';
+	hljs.registerLanguage("python", pythonLang);
+	hljs.registerLanguage("html", htmlLang);
 
 	export let data;
 	let { slug } = $page.params;
 	let meta = metaList.find((m) => m.slug === slug) as any;
+
+	// Highlight all code after page loads
+	onMount(() => {
+		hljs.highlightAll();
+	});
 </script>
 
 <svelte:head>
@@ -93,6 +110,12 @@
 
 	.content > :global(li) {
 		font-size: 1rem;
+	}
+
+	:global(code) {
+		border-radius: 5px;
+		margin-top: 1rem;
+		margin-bottom: 1rem;
 	}
 
 	@media (min-width: 768px) {
