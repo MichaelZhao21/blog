@@ -12,8 +12,8 @@
 	// NOTE: No svelte support (library for language def is outdated and inconsistent with register API)
 	import pythonLang from 'highlight.js/lib/languages/python';
 	import htmlLang from 'highlight.js/lib/languages/xml';
-	hljs.registerLanguage("python", pythonLang);
-	hljs.registerLanguage("html", htmlLang);
+	hljs.registerLanguage('python', pythonLang);
+	hljs.registerLanguage('html', htmlLang);
 
 	export let data;
 	let { slug } = $page.params;
@@ -27,6 +27,17 @@
 
 <svelte:head>
 	<title>{meta.title} | Michael's Blog</title>
+	<meta name="description" content={meta.description} />
+	<meta name="keywords" content={meta.tags} />
+	<link rel="canonical" href={`https://blog.michaelzhao.xyz/${meta.slug}`} />
+	<meta property="og:url" content={`https://blog.michaelzhao.xyz/${meta.slug}`} />
+	<meta property="og:description" content={meta.description} />
+	<meta property="og:title" content={`${meta.title} | Michael's Blog`} />
+	<meta property="og:site_name" content="Michael's Blog" />
+	<meta name="twitter:card" content="summary" />
+
+	<!-- TODO: Add dynamically generated picture for site with title and description (see what github does) -->
+	<!-- Then put in https://stackoverflow.com/questions/1092329/what-are-the-important-meta-tags-i-must-put-in-my-website these tags -->
 </svelte:head>
 
 <Navbar />
