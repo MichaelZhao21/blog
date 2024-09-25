@@ -14,7 +14,7 @@
 		<h1 class="text-3xl text-brown-1 duration-200 hover:text-brown-3">
 			<a href={`/${d.slug}`}>{d.title}</a>
 		</h1>
-		<p class="font-bold text-lg text-grey-light mb-2 line-clamp-2">
+		<p class="font-bold text-lg text-grey-light mt-[-0.25rem] mb-1 line-clamp-2">
 			{d.date}&nbsp; · &nbsp;{d.readingTime} min read
 		</p>
 		<p>{d.description}</p>
