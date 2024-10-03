@@ -43,7 +43,7 @@
 <Navbar />
 
 <article class="pb-4">
-	<h1 class="text-3xl md:text-5xl">{meta.title}</h1>
+	<h1 class="text-4xl md:text-5xl md:mb-2">{meta.title}</h1>
 	<p class="font-bold text-grey-light mb-4">
 		{meta.date}&nbsp; · &nbsp;{meta.readingTime} min read
 	</p>
@@ -103,6 +103,7 @@
 
 	.content > :global(p) {
 		font-size: 1rem;
+		line-height: 1.3;
 		color: var(--text);
 		margin-bottom: 1rem;
 	}
