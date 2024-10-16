@@ -62,7 +62,7 @@
 	<p class="font-bold text-grey-light mb-4">
 		{meta.date}&nbsp; · &nbsp;{meta.readingTime} min read
 	</p>
-	<div>
+	<div class="mb-4">
 		{#each meta.tags.split(',') as tag}
 			<span
 				class="bg-background-light text-brown-1 rounded-md py-1 px-2 font-bold mr-4 text-sm"
