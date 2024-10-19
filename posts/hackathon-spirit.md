@@ -1,7 +1,7 @@
 ---
 title: The Spirit of the Hackathon
 description: Thoughts on the creativity of hackathon projects and how to approach the LLM wrapper problem.
-date: 2024-10-16
+date: October 16th, 2024
 tags: hackathons
 slug: hackathon-spirit
 ---
