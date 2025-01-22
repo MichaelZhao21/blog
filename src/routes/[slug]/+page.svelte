@@ -58,14 +58,14 @@
 <Navbar />
 
 <article class="pb-4">
-	<h1 class="text-4xl md:text-5xl md:mb-2">{meta.title}</h1>
+	<h1 class="text-4xl md:text-5xl md:mb-2 mt-4">{meta.title}</h1>
 	<p class="font-bold text-grey-light mb-4">
 		{meta.date}&nbsp; · &nbsp;{meta.readingTime} min read
 	</p>
-	<div class="mb-4">
+	<div class="mb-4 flex flex-row flex-wrap gap-2">
 		{#each meta.tags.split(',') as tag}
 			<span
-				class="bg-background-light text-brown-1 rounded-md py-1 px-2 font-bold mr-4 text-sm"
+				class="bg-background-light text-brown-1 rounded-md py-1 px-2 font-bold text-sm"
 			>
 				{tag.trim()}
 			</span>
@@ -145,6 +145,10 @@
 		font-size: 1rem;
 	}
 
+	.content > :global(img) {
+		margin-top: 2rem;
+	}
+
 	:global(code) {
 		border-radius: 5px;
 		margin-top: 1rem;
@@ -157,6 +161,12 @@
 
 	:global(a:hover) {
 		text-decoration: underline;
+	}
+
+	:global(figcaption) {
+		font-size: 0.9rem;
+		color: var(--brown-2);
+		text-align: center;
 	}
 
 	@media (min-width: 768px) {

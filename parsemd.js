@@ -28,8 +28,15 @@ async function main() {
 			const code = converter.makeHtml(postContent);
 			const data = converter.getMetadata();
 
+			// TEMP FIX: Bc showdown doesn't parse colons in titles correctly,
+			// I have to sub for a semicolon and then replace it back
+			data.title = data.title.replace(/;/g, ':');
+
+			// Make anchor tags open in new tab
+			const newCode = code.replace(/<a /g, '<a target="_blank" ');
+
 			// Write html
-			fs.writeFileSync(`src/gen-posts/${postName}.html`, code);
+			fs.writeFileSync(`src/gen-posts/${postName}.html`, newCode);
 
 			// Add to metadata
 			postMetadata.push({ ...data, readingTime: computeReadingTime(postContent) });

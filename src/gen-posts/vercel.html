@@ -1,0 +1,21 @@
+<h1 id="intro">Intro</h1>
+<p>Following any tutorial titled "How to build a website," "Basic React Application," or "Make a personal portfolio from scratch," you'd end up with (hopefully) a decent website. However, when your friends get a link to your website, they can't see what you see! I bet you sent them either <code>file://home/username/cool-website</code> or <code>http://localhost:3000</code>. Spoiler alert: there's a reason why it's called <a target="_blank" href="https://www.freecodecamp.org/news/what-is-localhost/">LOCAL host</a>. We need to actually <strong>deploy</strong> this website to the ✨ internet ✨</p>
+<p>When you start looking into how to deploy websites, you may be hit with terms like "AWS," "EC2," "DNS servers," "the cloud," etc. It's confusing. I've been there, and I was so incredibly lost. Luckily, I stumbled onto <a target="_blank" href="https://vercel.com/">Vercel</a>. A few years later, I've got all my frontend apps deployed there for the <strong>cost of nothing</strong>.</p>
+<h1 id="how">How?</h1>
+<p>I can't explain how it's free (not complaining ofc), but I can absolutely explain how to use it! Deploying an app with Vercel is as easy as <a target="_blank" href="https://vercel.com/docs/deployments/git#deploying-a-git-repository">selecting your Github repo</a> and following a 1-2-3 guide. Let's go through it step-by-step:</p>
+<h2 id="1uploadyourcodetogithub">1. Upload your code to GitHub</h2>
+<p><a target="_blank" href="https://github.com/">GitHub</a> is the defacto platform for storing code in the open source and personal project world. It's free, widely used, and has tons of great resources to help you learn. Here's a <a target="_blank" href="https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners">sweet blog post from Hubspot</a>. Once your website is pushed to Github, you should have a <strong>repository</strong>, which should look similar to <a target="_blank" href="https://github.com/michaelZhao21/michaelzhao.xyz">my personal website's repository</a>.</p>
+<h2 id="2createavercelaccount">2. Create a Vercel account</h2>
+<p><a target="_blank" href="https://vercel.com/">Vercel</a> is the focus of this post! This is where we're deploying our website. Click "Start Deploying" on the home page. On the left, it should say "Import Git Repository." And look, you can just hit <strong>Continue with GitHub</strong>! This integration allows you to import whatever GitHub repository you want directly into Vercel, with the click of a button.</p>
+<p><img src="https://cdn.mikz.dev/blog/vercel-continue-with-github.webp" alt="screenshot highlighting the continue with github button" />
+<figcaption class="caption">Screenshot of Vercel's 'Continue with GitHub' button</figcaption></p>
+<h2 id="3deployyoursite">3. Deploy your site!</h2>
+<p>Once you've selected the repository you want, Vercel should guide you through a <a target="_blank" href="https://vercel.com/new">step-by-step app creation interface</a>. Once you complete all the steps, you should have an app accessible by anyone on the internet! On your main app page, you should see a custom URL for your website in the form <code>&lt;project name&gt;.vercel.app</code>, where <code>&lt;project name&gt;</code> is the name of your project.</p>
+<h2 id="whatsnext">What's Next?</h2>
+<p>Now that you've gotten your first app deployed, nothing's stopping you from doing another. Here are some cool things that Vercel can do that are worth looking into:</p>
+<ul>
+<li><strong>Web Analytics</strong> -- See statistics about your website, from when to where people are viewing your site</li>
+<li><strong>Logging</strong> -- Any logs that your website would produce are stored and accessed readily in the Vercel console</li>
+<li><strong>Custom Domain Name</strong> -- Want a domain name of your own? I suggest getting one from <a target="_blank" href="https://www.cloudflare.com/products/registrar/">Cloudflare Domains</a>! Once you've gotten one (not free, unfortunately), you can easily add it to Vercel and start using it for your website</li>
+</ul>
+<p>After doing this a couple of times, you'll find this process is as easy as it gets. We no longer have to spin up our own web servers and do our own Apache or NGINX configs. Vercel makes this process easy, fast, and -- best of all -- completely free!</p>
