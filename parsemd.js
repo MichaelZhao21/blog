@@ -5,6 +5,8 @@ import showdown from 'showdown';
 
 dayjs.extend(customParseFormat);
 
+const CDN_URL = 'https://cdn.mikz.dev/blog';
+
 // Script to parse the markdown in `posts` directory, convert them to svelte components, and put them in gen-posts folder in `src`
 // We will also generate a posts.json file that contains the metadata of the posts
 // This should be done each time a markdown post is added
@@ -24,8 +26,11 @@ async function main() {
 			const postName = post.replace('.md', '');
 			const postContent = fs.readFileSync(`posts/${post}`, 'utf-8');
 
+			// Replace ![[<image name>]] + line with caption with the CDN URL + figcaption
+			const modifiedPostContent = postContent.replace(/!\[\[(.*?)\..*?\]\]\n(.*?)\n/g, `![$2](${CDN_URL}/$1.webp)\n<figcaption class="caption">$2</figcaption>\n`);
+
 			const converter = new showdown.Converter({ metadata: true });
-			const code = converter.makeHtml(postContent);
+			const code = converter.makeHtml(modifiedPostContent);
 			const data = converter.getMetadata();
 
 			// TEMP FIX: Bc showdown doesn't parse colons in titles correctly,
@@ -33,7 +38,8 @@ async function main() {
 			data.title = data.title.replace(/;/g, ':');
 
 			// Make anchor tags open in new tab
-			const newCode = code.replace(/<a /g, '<a target="_blank" ');
+			// Replace <p><img ...><figcaption ...></p> with everything inside <p></p>
+			const newCode = code.replace(/<a /g, '<a target="_blank" ').replace(/\<p\>(<img.*?\n.*?)\<\/p\>/g, '<div class="image">$1</div>');
 
 			// Write html
 			fs.writeFileSync(`src/gen-posts/${postName}.html`, newCode);

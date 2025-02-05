@@ -145,8 +145,23 @@
 		font-size: 1rem;
 	}
 
-	.content > :global(img) {
-		margin-top: 2rem;
+	.content :global(img) {
+		box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.2);
+	}
+
+	.content :global(figcaption) {
+		color: var(--brown-2);
+		font-size: 0.75rem;
+		margin-top: 0.5rem;
+		text-align: center;
+	}
+
+	.content > :global(.image) {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-top: 0.75rem;
+		margin-bottom: 0.75rem;
 	}
 
 	:global(code) {
@@ -161,12 +176,6 @@
 
 	:global(a:hover) {
 		text-decoration: underline;
-	}
-
-	:global(figcaption) {
-		font-size: 0.9rem;
-		color: var(--brown-2);
-		text-align: center;
 	}
 
 	@media (min-width: 768px) {
@@ -189,6 +198,16 @@
 		.content > :global(ol),
 		.content > :global(ul) {
 			font-size: 1.15rem;
+		}
+
+		.content > :global(.image) {
+			margin-top: 1.5rem;
+			margin-bottom: 1.5rem;
+		}
+
+		.content :global(figcaption) {
+			font-size: 0.9rem;
+			margin-top: 0.75rem;
 		}
 	}
 </style>
